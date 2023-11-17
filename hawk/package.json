@@ -1,0 +1,12 @@
+{
+  "name": "hawk",
+  "version": "1.0.0",
+  "description": "A cli to ccheck your typing speed.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "nanoNuclear",
+  "license": "ISC"
+}
