@@ -52,3 +52,4 @@ test("getURLsFromHTML: invalids", () => {
   const expected = [];
   expect(actual).toEqual(expected);
 });
+
