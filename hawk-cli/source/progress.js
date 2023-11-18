@@ -3,8 +3,7 @@ import { render, Text, useInput } from "ink";
 
 const Progress = () => {
     const [progressText, setProgressText] = useState("");
-
-    const text = "HEllo I am a cli tool hawk."
+    
 
     useInput((input, key) => {
         if (key.backspace) {
@@ -14,7 +13,6 @@ const Progress = () => {
         }
     }
     );
-
 
 
     return (

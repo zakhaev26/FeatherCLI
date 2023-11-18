@@ -20,5 +20,4 @@ const cli = meow(
 		importMeta: import.meta,
 	},
 );
-
 render(<App />);
