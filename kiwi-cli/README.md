@@ -11,7 +11,7 @@
 
 - normalizeURL : Stream down URLs to a singular URL. [https://google.com = http://google.com = www.google.com = Google.com = google.com] to avoid revisiting the same webpages again
 
-- ExtractURLs : Extract all URLs from given HTML body and return an array of urls
+- ExtractURLs : Extract all URLs from given HTML body and return an array of urls, append baseURL if only relative path is present
 
 - crawlPage: Recurrsively crawl all the links in the given page and return elements encountered
 
