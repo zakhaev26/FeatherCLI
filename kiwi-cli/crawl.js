@@ -1,41 +1,32 @@
-const { JSDOM } = require("jsdom");
+const {JSDOM} = require('jsdom');
 
-function getURLsFromHTML(htmlBody, baseURL) {
-  const urls = [];
-  const dom = new JSDOM(htmlBody);
-  const linkElements = dom.window.document.querySelectorAll("a");
 
-  for (const element of linkElements) {
-    if (element.href.slice(0, 1) === "/") {
-        try{
-            const urlObj = new URL(baseURL + element.href);
-            urls.push(urlObj.href);
-        } catch(err){
-            console.log(`Error parsing relative url: ${err.message}`)
-        }
-    } else {
-        try {
-          const urlObj = new URL(element.href);
-          urls.push(urlObj.href);
-        } catch (err) {
-          console.log(`Error parsing relative url: ${err.message}`);
-        }
-
+function extractURLs(htmlBody){
+    const dom= new JSDOM(htmlBody);
+    const urls= dom.window.document.querySelectorAll('a');
+    for(const url in urls){
+        console.log(url)
     }
-  }
-  return urls;
+
 }
 
-function normalizeURL(urlString) {
-  const urlObj = new URL(urlString);
-  const hostPath = `${urlObj.hostname}${urlObj.pathname}`;
-  if (hostPath && hostPath.slice(-1) === "/") {
-    return hostPath.slice(0, -1);
-  }
-  return hostPath;
+function normalizeURL(urlString){
+    const URLObject= new URL(urlString);
+    let singularURL= URLObject.hostname + URLObject.pathname;
+    if (singularURL.slice(0,4) === 'www.'){
+        singularURL = singularURL.slice(4)
+    }
+    if (singularURL.slice(-1) === '/'){
+        singularURL= singularURL.slice(0,-1)
+    }
+    return singularURL;
 }
 
-module.exports = {
-  normalizeURL,
-  getURLsFromHTML,
-};
+async function get(){
+    const body = await fetch("https://github.com")
+    const htmlBody= await body.text();
+    console.log(htmlBody)
+    console.log(extractURLs(htmlBody));
+}
+
+get();
