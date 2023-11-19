@@ -18,13 +18,42 @@ const getPhrase = () => {
 	return phrases[Math.floor(Math.random() * phrases.length)];
 };
 
-export default function OfflineGame() {
-	let wrongInput = false;
+const OfflineGame = () => {
 	const [text, setText] = useState('');
 	const [quote, setQuote] = useState('');
+	const [wpm, setWpm] = useState(0);
+	const [startTime, setStartTime] = useState(null);
+	const [elapsedTime, setElapsedTime] = useState(0);
+
 	useEffect(() => {
 		setQuote(getPhrase());
+		setStartTime(Date.now());
 	}, []);
+
+	useEffect(() => {
+		// Update elapsed time every second
+		const interval = setInterval(() => {
+			setElapsedTime((Date.now() - startTime) / 1000);
+		}, 1000);
+
+		// Clear interval on component unmount
+		return () => clearInterval(interval);
+	}, [startTime]);
+
+	const updateWPM = () => {
+		if (text === '') {
+			setWpm(0);
+			return;
+		}
+		const words = text.split(' ');
+		if (words.length === 0) {
+			setWpm(0);
+			return;
+		}
+		const minutes = elapsedTime / 60;
+		const wpm = (words.length / minutes).toFixed(2);
+		setWpm(wpm);
+	};
 
 	//Updating the color of the text
 	const color = (quote, stringTyped) => {
@@ -34,8 +63,6 @@ export default function OfflineGame() {
 		const quoteLetters = quote.split('');
 		const typedLetters = stringTyped.split('');
 		for (let i = 0; i < typedLetters.length; i++) {
-			// if a single mistake,
-			// the rest of the coloured string will appear red
 			if (wrongInput) {
 				colouredString += chalk.bgRed(quoteLetters[i]);
 				continue;
@@ -44,9 +71,6 @@ export default function OfflineGame() {
 			if (typedLetters[i] === quoteLetters[i]) {
 				wrongInput = false;
 				colouredString += chalk.bgGreen(quoteLetters[i]);
-				if (quote === stringTyped) {
-					this.gameEnd = true;
-				}
 			} else {
 				wrongInput = true;
 				colouredString += chalk.bgRed(quoteLetters[i]);
@@ -78,21 +102,27 @@ export default function OfflineGame() {
 		useInput((input, key) => {
 			if (key.backspace) {
 				setText(prevText => prevText.slice(0, -1));
+				updateWPM();
 			} else if (key.return) {
 				exit();
 			} else if (text.length >= quote.length && text !== quote) {
 				setText(prevText => prevText);
+			} else if (text === quote) {
+				exit();
 			} else {
 				setText(prevText => prevText + input);
+				updateWPM();
 			}
 		});
-
 		return updateColor(quote, text);
 	};
-
 	return (
 		<>
 			<Text>{handleInput()}</Text>
+			<Text color="yellow">WPM: {chalk.blue(wpm)}</Text>
+			<Text color="yellow">Time: {chalk.blue(Math.floor(elapsedTime))}s</Text>
 		</>
 	);
-}
+};
+
+export default OfflineGame;
