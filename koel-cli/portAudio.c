@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <portaudio.h>
 
-#define SAMPLE_RATE 80000
+#define SAMPLE_RATE 100000
 #define FRAMES_PER_BUFFER 900
 
 typedef struct {
@@ -35,7 +35,7 @@ int main(int argc, char* argv[]) {
     }
 
     PaError err = Pa_Initialize();
-    if (err == 0) {
+    if (err != 0) {
         fprintf(stderr, "PortAudio initialization failed: %s\n", Pa_GetErrorText(err));
         return 1;
     }
