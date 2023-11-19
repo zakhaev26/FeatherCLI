@@ -15,6 +15,8 @@
 
 - crawlPage: Recurrsively crawl all the links in the given page and return elements encountered
 
-### Possible Edge Cases
+#### Possible Edge Cases
 
 - webpages calling each other
+- store invalid pages/url and dont revisit them
+- Add timeout return

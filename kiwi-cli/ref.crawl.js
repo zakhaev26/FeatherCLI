@@ -8,12 +8,12 @@ async function crawlPage(baseURL, currentURL, pages) {
   }
 
   const normalizedCurrentURL = normalizeURL(currentURL);
-  pages[normalizedCurrentURL] = 1;
-
+  
   if (pages[normalizedCurrentURL] > 0) {
     pages[normalizedCurrentURL]++;
     return pages;
   }
+  pages[normalizedCurrentURL] = 1;
 
   console.log(`actviely crawling ${currentURL}`);
 
