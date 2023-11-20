@@ -1,6 +1,12 @@
 # Kiwi
 ## A tool to scrap, crawl and monitor targeted websites.
 
+### Installation
+
+- Clone repo
+- Run `npm install -g` inside the directory
+- Run `kiwi [mode] [URL]` to use. Use mode as 'crawl' and http(s) URLs now.
+
 ### Crawling:
 
 - Recurrsively visit webpages that branch from the base url
@@ -17,6 +23,4 @@
 
 #### Possible Edge Cases
 
-- webpages calling each other
-- store invalid pages/url and dont revisit them
-- Add timeout return
+
