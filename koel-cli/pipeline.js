@@ -22,30 +22,21 @@ async function getYouTubeVideoID() {
 	  }
 }
 
-// Function to download YouTube video using yt-dlp
 async function downloadYouTubeVideo(videoID) {  
   const command = `yt-dlp -x --audio-format -o 'audio.mp3' mp3 https://www.youtube.com/watch?v=${videoID}`;
   await runCommand(command);
 }
 
-// Function to convert MP4 to MP3 using ffmpeg
-
-// Function to convert MP3 to WAV using ffmpeg
 async function convertMP3toWAV() {
-  // Implement ffmpeg conversion logic here
-  // Example:
   const command = 'ffmpeg -i audio.mp3 audio.wav';
   await runCommand(command);
 }
-
-// Function to play WAV file using your C API
 
 async function playWAVFile() {
   const command = './bin/portaudio audio.wav';
   await runCommand(command);
 }
 
-// Helper function to run shell commands
 function runCommand(command) {
   return new Promise((resolve, reject) => {
     exec(command, (error, stdout, stderr) => {
@@ -58,22 +49,17 @@ function runCommand(command) {
   });
 }
 
-// Main function to orchestrate the workflow
 async function main() {
   try {
-    const videoID = await getYouTubeVideoID();
+    
+	const videoID = await getYouTubeVideoID();
     console.log(`YouTube Video ID: ${videoID}`);
-
-   await downloadYouTubeVideo(videoID);
-   console.log('Audio downloaded.');
-
+    await downloadYouTubeVideo(videoID);
     await playWAVFile();
-    console.log('WAV file played using C API.');
 
   } catch (error) {
     console.error('An error occurred:', error);
   }
 }
 
-// Run the main function
 main();
