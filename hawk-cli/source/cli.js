@@ -7,17 +7,11 @@ import App from './app.js';
 const cli = meow(
 	`
 		Usage
-		  $ my-ink-cli <options> <name>
-
-		Options
-			--name  Your name
-
-		Examples
-		  $ my-ink-cli --name=Jane
-		  Hello, Jane
+		  $ hawk-cli
 	`,
 	{
 		importMeta: import.meta,
 	},
 );
+
 render(<App />);

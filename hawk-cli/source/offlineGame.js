@@ -4,6 +4,7 @@ import {readFileSync} from 'fs';
 import {useInput} from 'ink';
 import {exit} from 'process';
 import chalk from 'chalk';
+import figlet from 'figlet';
 
 var phrases = null;
 try {
@@ -26,6 +27,14 @@ const OfflineGame = () => {
 	const [elapsedTime, setElapsedTime] = useState(0);
 
 	useEffect(() => {
+		figlet('hawk - CLI', function (err, data) {
+			if (err) {
+				console.log('Something went wrong...');
+				console.dir(err);
+				return;
+			}
+			console.log(chalk.red(data));
+		});
 		setQuote(getPhrase());
 		setStartTime(Date.now());
 	}, []);
@@ -114,11 +123,14 @@ const OfflineGame = () => {
 				updateWPM();
 			}
 		});
+
 		return updateColor(quote, text);
 	};
+	const displayText = handleInput();
+
 	return (
 		<>
-			<Text>{handleInput()}</Text>
+			<Text>{displayText}</Text>
 			<Text color="yellow">WPM: {chalk.blue(wpm)}</Text>
 			<Text color="yellow">Time: {chalk.blue(Math.floor(elapsedTime))}s</Text>
 		</>
