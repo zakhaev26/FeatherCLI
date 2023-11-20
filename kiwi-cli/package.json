@@ -1,0 +1,19 @@
+{
+  "name": "kiwi",
+  "version": "1.0.0",
+  "description": "A CLI tool to crawl, scrap and monitor websites",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --no-warnings index.js",
+    "test": "jest"
+  },
+  "author": "Saswat",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "jsdom": "^22.1.0"
+  }
+}
