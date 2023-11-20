@@ -130,4 +130,8 @@ dist
 .pnp.*
 
 
-koel-cli/scripts/*
+koel-cli/*.wav 
+koel-cli/*.webm.part
+koel-cli/*.webm
+koel-cli/*.mp3
+koel-cli/*.mp4
