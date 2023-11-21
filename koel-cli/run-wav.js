@@ -2,7 +2,7 @@ const fs = require('fs');
 const { exec } = require('child_process');
 
 async function playWAVFile() {
-    const command = './bin/portaudio data/amid.wav';
+    const command = './bin/portaudio audio.wav';
     await runCommand(command);
 }
 
