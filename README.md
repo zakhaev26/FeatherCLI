@@ -10,12 +10,12 @@ Koel is a command-line interface (CLI) tool designed for those who prefer a term
 
 # Features
 
-- Utilizes a powerful C engine under the hood to play .wav files, leveraging the PortAudio standard library.
+- Utilizes a C engine under the hood to play .wav files, leveraging the PortAudio standard library.
 
 - Integrates with yt-dlp to fetch song information from YouTube using the ID returned by the YouTube API.
 
 - Converts downloaded MP3 files to .wav format through ffmpeg conversion.
-- Uses Node child processes to seamlessly spin up an instance of the executable,   providing a smooth music playback experience.
+- Uses Node child processes to spin up an instance of the executable,providing a music playback experience.
 
 # Installation 
 
