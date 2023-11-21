@@ -2,11 +2,23 @@ const { exec } = require('child_process');
 const axios = require('axios');
 const fs = require('fs');
 
-async function getYouTubeVideoID() {
+
+function getInput() {
+	let builtString = ''
+    process.argv.forEach((element,index )=> {
+    if(index >=2) {
+        builtString+=element;
+        builtString+=" ";
+    }
+    });
+	return builtString;
+}
+
+async function getYouTubeVideoID(songName) {
 	const options = {
 		method: 'GET',
 		url: 'https://youtube138.p.rapidapi.com/search/',
-		params: { q: ' Stressed Out Lyrics' },
+		params: { q: songName },
 		headers: {
 			'X-RapidAPI-Key': 'ba4e9ba179mshc69623caa396691p186ac5jsn49df3ab96d0d',
 			'X-RapidAPI-Host': 'youtube138.p.rapidapi.com'
@@ -68,9 +80,9 @@ async function cleanCacheAudio() {
 }
 
 async function main() {
-	try {
-
-		const videoID = await getYouTubeVideoID();
+	try {	
+	    let songName = getInput();
+		const videoID = await getYouTubeVideoID(songName);
 		console.log(`YouTube Video ID: ${videoID}`);
 
 		await cleanCacheAudio();
