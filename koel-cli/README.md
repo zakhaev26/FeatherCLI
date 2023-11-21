@@ -1,7 +1,3 @@
-# FeatherCLI
-Home to Hawk,Raven,Koel,Falcon CLI's.
-
-
 # Koel CLI
 
 Koel is a command-line interface (CLI) tool designed for those who prefer a terminal-based music player experience.

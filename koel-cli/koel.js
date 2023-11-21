@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const { exec } = require('child_process');
 const axios = require('axios');
 const fs = require('fs');
@@ -64,7 +65,7 @@ function runCommand(command) {
 async function cleanCacheAudio() {
 	const command = `
 	if [ -e *.mp3 ]; then
-		echo "Deleting .mp3 files..."
+		echo "Deleting .mp3 files"
 		rm *.mp3
 	else
         echo "No .mp3 files found. Nothing to delete."
@@ -83,8 +84,7 @@ async function main() {
 	try {	
 	    let songName = getInput();
 		const videoID = await getYouTubeVideoID(songName);
-		console.log(`YouTube Video ID: ${videoID}`);
-
+		console.log("Wait while we fetch and process the song!~")
 		await cleanCacheAudio();
 
 		await downloadYouTubeVideo(videoID);
