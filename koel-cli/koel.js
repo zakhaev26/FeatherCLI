@@ -21,7 +21,7 @@ async function getYouTubeVideoID(songName) {
 		url: 'https://youtube138.p.rapidapi.com/search/',
 		params: { q: songName },
 		headers: {
-			'X-RapidAPI-Key': 'ba4e9ba179mshc69623caa396691p186ac5jsn49df3ab96d0d',
+			'X-RapidAPI-Key': '1fb3058e08mshe7795233ed4a67cp14c898jsn303c84881795',
 			'X-RapidAPI-Host': 'youtube138.p.rapidapi.com'
 		}
 	};
@@ -34,6 +34,10 @@ async function getYouTubeVideoID(songName) {
 		console.error(error);
 	}
 }
+
+
+
+
 
 async function downloadYouTubeVideo(videoID) {
 	const command = `yt-dlp -x --audio-format mp3 -o 'audio.mp3' https://www.youtube.com/watch?v=${videoID}`;
