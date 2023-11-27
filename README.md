@@ -27,16 +27,16 @@ Working Demo :
 
 [![Watch the video](https://img.youtube.com/vi/LPypxhC4BCE/0.jpg)](https://www.youtube.com/watch?v=LPypxhC4BCE)
 
-## How we built it
+# How we built it
 
-# KoelCLI
+## KoelCLI
 We utilized an API for fetching the YouTube video ID of the requested song through web scraping. This ID served as input for YT-DLP, helping us to obtain the corresponding MP3 file. To enhance sound quality, reduce lossy compressions, and decrease network usage by 75-90%, we employed ffmpeg to convert the MP3 file to WAV format.
 
 This WAV File was then fed to the Portaudio-based C Engine and played the music. This multi-step process ensured an optimal audio experience for users interacting with KoelCLI.
 
 The implementation of KoelCLI was accomplished using Node.js. The CLI uses child processes for each command,this modular and efficient approach contributes to the overall functionality and user experience of KoelCLI.
 
-# Installation 
+### Installation 
 
 ```bash 
 
@@ -70,7 +70,7 @@ sudo apt-get install ffmpeg
 npm install
 ```
 
-# Usage 
+### Usage 
 
 > To play a song, simply run:
 node koel.js <song_name>
@@ -82,7 +82,7 @@ eg :
 
 And enjoy the Music!
 
-# KiwiCLI : 
+## KiwiCLI : 
 The tool recurrsively crawls webpages untill it exhausts all URLs with the same domain name. The aim is to turn it into a complete web scraping, monitoring and crawling tool as it evolves in the future
 
 It checks for two cases while recurring crawling : 
@@ -110,7 +110,7 @@ kiwi [mode] [URL]
 
 ```
 
-# HawkCLI :
+## HawkCLI :
 
 HawkCLI is like a Typeracer game for your command line. It uses InkJS to make things look nice and runs on Node.js, which makes it work well. The cool part is that it can calculate how fast you type even without the internet. So, you can enjoy a fun typing challenge right from your command line without needing to be online.Currently it supports Offline Version.
 
