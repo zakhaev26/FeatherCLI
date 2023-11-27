@@ -1,4 +1,11 @@
-[](./assets/logo.jpg)
+<center>
+
+![FeatherCLI](./assets/logo.png)
+<br/>
+<br/>
+<h3>Our Submission for MLH Monthlong Hackathon.</h3>
+</center>
+
 ## Inspiration
 
 Our inspiration for this project draws from various sources – our daily interactions with CLI tools, a *DEEP* appreciation for their utility, and a desire to create something that developers can incorporate into their comfort zone: the Terminal :D. The journey began when we stumbled upon "TyperacerCLI" (https://github.com/p-society/TyperacerCLI), a community project crafted by our former university seniors during their college days. Intrigued by the idea of such tools, we made this project as a learning experience, eager to contribute our own take on enhancing the CLI tools.
