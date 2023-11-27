@@ -145,7 +145,7 @@ The installation of libraries presented a particular hardship on Windows compare
 Beyond these technical challenges,Developing a CLI tool involves more than just writing good code; it demands an understanding of the intricacies unique to command line interfaces. Despite these challenges , we feel good about the MVP progress thus far. (We made it in just a week,skipping college classes and our Exams are from next week XD)
 
 ## Accomplishments that we're proud of
-
+-By using FFMPEG to convert MP3 to WAV in Host OS instead of downloading the whole WAV file over network, We reduced network usage by 75-90%.
 - Developing a music player engine in C was a notable achievement, emphasizing speed and efficiency. This accomplishment underscores our commitment to creating a powerful and responsive music-playing experience within the terminal.
 
 - Our WebCrawler is capable of crawling ENTIRE webpages. This functionality is immensely useful for developers and users seeking a overview of the links present on a website, enhancing the efficiency of web-related tasks.
