@@ -2,7 +2,7 @@ const figlet = require('figlet');
 
 async function KOEL() {
 
-await figlet("Koel CLI",  {
+await figlet("KoelJS",  {
     width: 1100,
   }, function (err, data) {
   if (err) {

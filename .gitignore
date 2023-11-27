@@ -135,3 +135,6 @@ koel-cli/*.webm.part
 koel-cli/*.webm
 koel-cli/*.mp3
 koel-cli/*.mp4
+
+
+assets/*.mp4
