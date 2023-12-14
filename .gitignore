@@ -137,4 +137,4 @@ koel-cli/*.mp3
 koel-cli/*.mp4
 
 
-assets/*.mp4
+#assets/*.mp4

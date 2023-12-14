@@ -21,7 +21,7 @@ async function getYouTubeVideoID(songName) {
 		url: 'https://youtube138.p.rapidapi.com/search/',
 		params: { q: songName },
 		headers: {
-			'X-RapidAPI-Key': '1fb3058e08mshe7795233ed4a67cp14c898jsn303c84881795',
+			'X-RapidAPI-Key': '95992756cbmshdd903a59b07377ap1b3e73jsn36c4b8682a30',
 			'X-RapidAPI-Host': 'youtube138.p.rapidapi.com'
 		}
 	};
@@ -29,6 +29,7 @@ async function getYouTubeVideoID(songName) {
 	try {
 		const response = await axios.request(options);
 		const ID = response.data.contents[0].video.videoId;
+		console.log("Playing :",response.data.contents[0].video.title);
 		return ID;
 	} catch (error) {
 		console.error(error);

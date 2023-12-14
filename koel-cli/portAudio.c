@@ -3,7 +3,7 @@
 #include <portaudio.h>
 
 #define SAMPLE_RATE 100000
-#define FRAMES_PER_BUFFER 900
+#define FRAMES_PER_BUFFER 899
 
 typedef struct {
     const char* filename;
