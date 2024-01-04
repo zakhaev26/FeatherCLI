@@ -71,7 +71,7 @@ npm install
 ```
 
 
-# Installation on Arch Based command line (worked for one machine)
+### Installation on Arch Based command line (worked for one machine)
 
 ```bash
 # CURRENTLY STABLE IN DEB/WSL Environments ONLY!
@@ -103,7 +103,7 @@ npm install
   alsa-lib
   alsa-tools
   alsa-utils
-this part is too big to instruct, i'm guessing you can do since you're an arch user ;)
+This part is too big to instruct,assuming arch users can do these.
 
 # Edit the ALSA configuration file (can mess up your audio drivers, can't confirm; If that happens, just reinstall alsa libs by sudo pacman -S command):
   sudo nano /usr/share/alsa/alsa.conf
