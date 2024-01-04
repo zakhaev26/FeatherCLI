@@ -36,7 +36,7 @@ This WAV File was then fed to the Portaudio-based C Engine and played the music.
 
 The implementation of KoelCLI was accomplished using Node.js. The CLI uses child processes for each command,this modular and efficient approach contributes to the overall functionality and user experience of KoelCLI.
 
-### Installation 
+### Installation in Debian Based command line
 
 ```bash 
 
@@ -70,6 +70,49 @@ sudo apt-get install ffmpeg
 npm install
 ```
 
+
+# Installation on Arch Based command line (worked for one machine)
+
+```bash
+# CURRENTLY STABLE IN DEB/WSL Environments ONLY!
+# Make sure to have C Compiler and Node Runtime.
+
+
+# Clone the repo
+git clone https://github.com/zakhaev26/FeatherCLI.git
+
+# Change directory to koel-cli
+cd koel-cli
+
+# Install PortAudio
+sudo pacman -S portaudio
+
+# Compile portaudio.c to make the binary executable on your machine
+gcc portaudio.c -o bin/portaudio -lrt -lasound -ljack -lpthread -lportaudio
+
+# Install yt-dlp
+pip install yt-dlp
+
+# Install ffmpeg
+sudo pacman -S ffmpeg
+
+# Install Node Dependencies
+npm install
+
+# Install necessary alsa libraries (using yay or another AUR helper if needed):
+  alsa-lib
+  alsa-tools
+  alsa-utils
+this part is too big to instruct, i'm guessing you can do since you're an arch user ;)
+
+# Edit the ALSA configuration file (can mess up your audio drivers, can't confirm; If that happens, just reinstall alsa libs by sudo pacman -S command):
+  sudo nano /usr/share/alsa/alsa.conf
+Change the values of default.ctl and default.pcm on lines 105 and 106 to your sound card's ID.
+Comment out lines 352, 353, and 354 by adding a "#" character before 'p'.
+Write the changes and save.
+
+# Navigate to Koel-CLI directory and use!
+```
 ### Usage 
 
 > To play a song, simply run:
@@ -114,7 +157,7 @@ kiwi [mode] [URL]
 
 HawkCLI is like a Typeracer game for your command line. It uses InkJS to make things look nice and runs on Node.js, which makes it work well. The cool part is that it can calculate how fast you type even without the internet. So, you can enjoy a fun typing challenge right from your command line without needing to be online.Currently it supports Offline Version.
 
-### Installation
+### Installation on Debian Based command Line
 
 ```bash
 # Clone the repo
